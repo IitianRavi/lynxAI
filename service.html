@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynx service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://i.pinimg.com/736x/dd/8c/d5/dd8cd5ac864019d58507abe8fb3bb669.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 3000px;
+            padding: 2rem;
+            background: rgba(0, 0, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 35px;
+            box-shadow: 0 0 20px rgba(0, 157, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #00f7ff;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+
+        .typing-text {
+            border-right: 3px solid #00f7ff;
+            white-space: pre-wrap;
+            overflow: hidden;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 247, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(0, 247, 255, 0.8); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="glow">Lynx v1.0</h1>
+        <p class="typing-text"></p>
+    </div>
+
+    <script>
+        const text = `I am Lynx v1.0, your personal assistant.
+
+I can help you with daily tasks efficiently.
+
+Services I Offer:
+✅ Open Websites:
+
+"Open YouTube"
+"Open Google Chrome"
+"Open Gmail"
+"Open Stack Overflow"
+✅ Predict Time:
+
+"What’s the time?"
+✅ Search Wikipedia:
+
+"Search Wikipedia for [topic]"
+✅ Get Latest News:
+
+"Top headlines from Times of India"
+✅ Check Weather:
+
+"Weather in [city]"
+✅ Answer Questions:
+
+"Solve [math problem]"
+"Where is [place]?"
+I am designed for speed and accuracy.
+
+Your smart assistant is ready to help! 🚀`;
+
+        const typingText = document.querySelector('.typing-text');
+        let index = 0;
+        let isDeleting = false;
+        let charIndex = 0;
+
+        function type() {
+            const currentText = text.slice(0, charIndex);
+            typingText.textContent = currentText;
+
+            if (!isDeleting && charIndex < text.length) {
+                charIndex++;
+                setTimeout(type, 11.5); // Typing speed
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(type, 15); // Deleting speed
+            } else if (charIndex === text.length) {
+                // Wait before starting to delete
+                setTimeout(() => {
+                    isDeleting = true;
+                    type();
+                }, 5000);
+            } else if (charIndex === 0) {
+                isDeleting = false;
+                setTimeout(type, 1000);
+            }
+        }
+
+        // Start the typing animation when the page loads
+        window.onload = () => {
+            type();
+        };
+    </script>
+</body>
+</html>

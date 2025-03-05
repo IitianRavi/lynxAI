@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYNX-Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .left-section {
+            width: 50%;
+            background: url('image.png.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+        }
+
+        .right-section {
+            width: 50%;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .language-select {
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .welcome-text {
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text p {
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .forgot-password a {
+            color: #f44336;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .google-btn, .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .google-btn {
+            background: white;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .login-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .signup-text a {
+            color: #f44336;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                display: none;
+            }
+            .right-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-section"></div>
+
+    <div class="right-section">
+        <div class="login-container">
+            <div class="header">
+                
+                <p style="text-align: center;"><b>LYNX - A Voice Assistant</b></p>
+                <select class="language-select">
+                    <option>EN</option>
+                </select>
+            </div>
+            <div class="welcome-text">
+                <h1>Hii, Welcome to LYNX</h1>
+                <p>Have a good day..!!</p>
+            </div>
+            <form>
+                <div class="form-group">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="button" class="google-btn">
+                    Login with Google
+                </button>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="signup-text">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
